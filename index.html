@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<script src="js/mail-generator.js"></script>
+		<link href="css/style.css" rel="stylesheet" media="screen">
+    <script type="text/javascript">
+      window.onload = function(){
+        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
+        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+        //document.getElementById
+        var mainElement = document.getElementById('main');
+
+
+        for(var i = 0; i < window.geemails.length; i++){
+        	var currentMessage = window.geemails[i]
+        	//create
+        	var subjectElement = document.createElement('div');
+        	subjectElement.innerHTML = currentMessage.subject;
+        	//document.appendChild
+        	mainElement.appendChild(subjectElement);
+
+        }
+        
+        for(var j = 0; j < window.geemails.length; j++){
+        	var senderMessage = window.geemails[j]
+
+        	var senderElement = document.createElement('div')
+        	senderElement.innerHTML = senderMessage.sender;
+        	mainElement.appendChild(senderElement);
+        }
+        
+        for(var h = 0; h < window.geemails.length; h++){
+        	var dateMessage = window.geemails[h]
+        	var dateElement = document.createElement('div');
+        	dateElement.innerHTML = dateMessage.date;
+        	mainElement.appendChild(dateElement);
+		}
+
+		for(var g = 0; g < window.geemails.length; g++){
+			var bodyMessage = window.geemails[g]
+			var bodyElement = document.createElement('div')
+			bodyElement.innerHTML = bodyMessage.body;
+			mainElement.appendChild(bodyElement);
+		}
+
+
+
+
+      };
+      $(document).ready(main);
+    </script>
+	</head>
+	<body>
+		<div class="container" id="main">
+			
+			<div class = "dateMessage">
+				<h3 class= "date"></h3>
+			</div>
+
+				<div class = "senderMessage">
+					<h3 class="sender"></h3>
+				</div>
+
+					<div class = "currentMessage">
+						<h3 class = "subject"></h3>
+					</div>
+
+						<div class = "bodyMessage">
+							<h3 class = "body"></h3>
+						</div>
+						
+			
+		</div>
+	</body>
+</html>
